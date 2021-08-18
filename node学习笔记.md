@@ -78,7 +78,7 @@ module.exports可以直接赋值一个{},也可以通过module.exports.x = "";�
 
 包实际上就是一个压缩文件，解压后还远为目录，符合规范的目录，应该包含如下文件
 
-- package.json 描述文件
+- package.json **描述文件**，必须有
 
 - bin 可执行二进制文件
 
@@ -88,6 +88,22 @@ module.exports可以直接赋值一个{},也可以通过module.exports.x = "";�
 
 - test 单元测试
 
-   
-
   
+
+## npm包管理器
+
+node package manager
+
+npm完成第三方模块的发布、安装和依赖。借助npm node与第三方模块之间形成了很好的一个生态系统
+
+npm -v   查看npm版本
+
+npm  version 查看所有模块的版本
+
+npm search  搜索包
+
+npm install 包名   默认安装到当前的文件夹中
+
+npm install -g 包名 
+
+npm init 初始化一个package环境
