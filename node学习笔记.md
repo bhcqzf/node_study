@@ -102,8 +102,68 @@ npm  version 查看所有模块的版本
 
 npm search  搜索包
 
-npm install 包名   默认安装到当前的文件夹中
+npm install 包名   默认安装到当前的文件夹中   简写  npm i
 
-npm install -g 包名 
+npm install -g 包名 （全局安装包，一般都是一些工具）
+
+npm install 包名 --save 会储存到json中（其实现在不加save也会添加）
+
+npm install 下载所有依赖包
 
 npm init 初始化一个package环境
+
+npm remove 移除包
+
+### 设置国内源和cnpm
+
+```shell
+#设置国内源
+npm config set registry https://registry.npm.taobao.org
+#安装cnpm
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
+
+
+
+## buffer(缓冲区)
+
+buffer的结构和数组很像，操作的方法也和数组类似
+
+js本身的数组性能较差
+
+数组中不能存储二进制文件
+
+buffer可以存储二进制文件,都是以二进制存储的，但是会以16进制显示
+
+```javascript
+var str = "hello world ";
+var buf = Buffer.from(str);
+console.log(buf);
+
+//创建一个指定大小的buffer
+//buffer的构造方法都废弃了
+var buf2 = new Buffer(10);
+console.log(buf2.length);
+//下面这个没废弃
+var buf2 = Buffer.alloc(10);
+console.log(buf2);
+//buffer的大小一旦确定无法改变
+```
+
+```javascript
+/*
+	Buffer.from(str) 将一个字符串传华为buffer
+	Buffer.alloc(size) 创建一个指定大小的Buffer
+	Buffer.alloUnsafe(size) 创建一个指定大小的Buffer，但可能包含敏感数据
+*/
+```
+
+## 文件系统 File System
+
+fs模块中所有的操作都有两种形式可供选择
+
+同步和异步
+
+同步文件系统会阻塞程序的运行，也就是除非操作完毕，否则不会向下执行代码
+
+异步文件系统不会阻塞程序的运行，而是在操作系统完成时，通过回调函数将结果返回
